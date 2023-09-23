@@ -3,7 +3,6 @@
 // console.log(window.innerWidth);
 
 let tileNumber = 2;
-let previousTime = 0;
 
 function tileArea(tileColumns) {
     let dimensions = (790 / (tileColumns) - 5);
@@ -26,23 +25,17 @@ function tileArea(tileColumns) {
     }
 }
 
-function toggleSelected(box, currentTime) {
-    if (currentTime < (previousTime+250)) return;
-    previousTime = currentTime;
+function toggleSelected(box) {
     if (box.classList.contains("unselected")) {
         box.classList.remove("unselected");
         box.classList.add("selected");
-    // } else if (box.classList.contains("selected")) {
-    //     box.classList.remove("selected");
-    //     box.classList.add("unselected");
     }
 }
 
 function mouseHandler(e) {
-    // console.log(click);
     if (e.buttons !== 1) return;
     if (e.target.classList.contains("pixelbox")) {
-        toggleSelected(e.target, e.timeStammp);
+        toggleSelected(e.target);
     }
 }
 
