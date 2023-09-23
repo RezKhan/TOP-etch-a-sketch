@@ -1,0 +1,65 @@
+/* Color pallete: Cataclysm 10 by Star */
+/* https://lospec.com/palette-list/cataclysm-10 */
+
+:root {
+    --bone: #d5baa2;
+    --lbrown: #b1817d;
+    --brown: #684954;
+    --dbrown: #2c242b;
+    --dpurple: #170e22;
+
+    --lorange: #f1a37c;
+    --dorange: #e64a43;
+    --lred: #bd1a2a;
+    --dred: #760a32;
+    --lpurple: #340a2a;
+
+    --pboxSides: 20px;  /* default value, immediately overwritten on load */
+}
+
+body {
+    background-color: var(--dpurple);
+    color: var(--bone);
+}
+
+.main-container {
+    margin: auto;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.pixelrow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.pixelbox {
+    height: var(--pboxSides);
+    width: var(--pboxSides);
+    border: 1px;
+    border-style: solid;
+}
+
+.pixelbox:hover {
+    box-shadow: 0px 0px 10px var(--lorange);
+    background-color: var(--dorange);
+    border-color: var(--dred);
+    transition: all 0.2s linear;
+}
+
+.unselected {
+    background-color: var(--lbrown);
+    border-color: var(--dbrown);
+}
+
+.selected {
+    background-color: var(--lpurple);
+    border-color: var(--lbrown);
+}
