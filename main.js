@@ -5,7 +5,6 @@
 let tileNumber = 2;
 let previousTime = 0;
 
-
 function tileArea(tileColumns) {
     let dimensions = (790 / (tileColumns) - 5);
     let dRoot = document.querySelector(":root");
@@ -27,10 +26,9 @@ function tileArea(tileColumns) {
     }
 }
 
-tileArea(tileNumber);
-
 function toggleSelected(box, currentTime) {
     if (currentTime < (previousTime+250)) return;
+    previousTime = currentTime;
     if (box.classList.contains("unselected")) {
         box.classList.remove("unselected");
         box.classList.add("selected");
@@ -48,5 +46,9 @@ function mouseHandler(e) {
     }
 }
 
-// window.addEventListener("click", clickHandler);
+tileArea(tileNumber);
+const rSlider = document.querySelector("#rangeslider")
+rSlider.setAttribute("value", 2);
+
+
 window.addEventListener("mousemove", mouseHandler);

@@ -11,8 +11,8 @@
 
     </div>
     <div class="slider">
-        <input type="range" value="2" min="2" max="25" oninput="rangeValue.innerText = this.value; tileArea(this.value)"/>
-        <p id="rangeValue"></p>
+        <input id="rangeslider" type="range" value="-2" min="2" max="25" step="1" oninput="rangeValue.innerText = `${this.value} x ${this.value}`; tileArea(this.value)"/><br />
+        <span id="rangeValue">2 x 2</span>
     </div>
     <script src="./main.js"></script></body>
 </html>
