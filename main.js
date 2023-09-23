@@ -3,6 +3,8 @@
 // console.log(window.innerWidth);
 
 let tileNumber = 2;
+let previousTime = 0;
+
 
 function tileArea(tileColumns) {
     let dimensions = (790 / (tileColumns) - 5);
@@ -27,8 +29,8 @@ function tileArea(tileColumns) {
 
 tileArea(tileNumber);
 
-function toggleSelected(box) {
-    console.log(box.classList);
+function toggleSelected(box, currentTime) {
+    if (currentTime < (previousTime+250)) return;
     if (box.classList.contains("unselected")) {
         box.classList.remove("unselected");
         box.classList.add("selected");
@@ -42,7 +44,7 @@ function mouseHandler(e) {
     // console.log(click);
     if (e.buttons !== 1) return;
     if (e.target.classList.contains("pixelbox")) {
-        toggleSelected(e.target);
+        toggleSelected(e.target, e.timeStammp);
     }
 }
 
