@@ -34,9 +34,9 @@ function toggleSelected(box, currentTime) {
     if (box.classList.contains("unselected")) {
         box.classList.remove("unselected");
         box.classList.add("selected");
-    } else if (box.classList.contains("selected")) {
-        box.classList.remove("selected");
-        box.classList.add("unselected");
+    // } else if (box.classList.contains("selected")) {
+    //     box.classList.remove("selected");
+    //     box.classList.add("unselected");
     }
 }
 

@@ -45,6 +45,9 @@ body {
     width: var(--pboxSides);
     border: 1px;
     border-style: solid;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .pixelbox:hover {
