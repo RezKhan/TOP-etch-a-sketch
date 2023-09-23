@@ -62,6 +62,7 @@ body {
 .selected {
     background-color: var(--lpurple);
     border-color: var(--lbrown);
+    transition: all 0.1s;
 }
 
 .slider {

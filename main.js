@@ -2,16 +2,16 @@
 
 // console.log(window.innerWidth);
 
-let tileNumber = 10;
+let tileNumber = 2;
 
 function tileArea(tileColumns) {
-    let dimensions = (790 / (tileColumns+0.25) - 5);
+    let dimensions = (790 / (tileColumns) - 5);
     let dRoot = document.querySelector(":root");
     let mainContainer = document.querySelector("div.main-container");
 
+    mainContainer.innerHTML = "";
     dRoot.style.setProperty("--pboxSides", (dimensions + "px"));
 
-    console.log("before for loop");
     for (let i = 0; i < tileColumns; ++i) { 
         mainContainer.innerHTML += `<div class="pixelrow">`
 
@@ -19,7 +19,7 @@ function tileArea(tileColumns) {
             let pixelRow = document.querySelectorAll("div.pixelrow");
             let pixelBox = `<div id="box${i}${j}" class="pixelbox unselected"></div>`;
             pixelRow[i].innerHTML += pixelBox;
-            
+
         }
         mainContainer.innerHTML += "</div>"
     }
@@ -27,12 +27,24 @@ function tileArea(tileColumns) {
 
 tileArea(tileNumber);
 
-function clickHandler(e) {
+function toggleSelected(box) {
+    console.log(box.classList);
+    if (box.classList.contains("unselected")) {
+        box.classList.remove("unselected");
+        box.classList.add("selected");
+    } else if (box.classList.contains("selected")) {
+        box.classList.remove("selected");
+        box.classList.add("unselected");
+    }
+}
+
+function mouseHandler(e) {
     // console.log(click);
-    // if (!click.target.classList.contains('pixelbox')) return;
-    // let cTarget = click.target.id;
-    console.log(e);
+    if (e.buttons !== 1) return;
+    if (e.target.classList.contains("pixelbox")) {
+        toggleSelected(e.target);
+    }
 }
 
 // window.addEventListener("click", clickHandler);
-// window.addEventListener("mousemove", clickHandler);
+window.addEventListener("mousemove", mouseHandler);
